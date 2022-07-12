@@ -1,0 +1,6 @@
+a.out
+*.swp
+*.o
+libftTester
+.DS_Store
+

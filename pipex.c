@@ -6,16 +6,11 @@
 /*   By: jmuni-re <jmuni-re@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 13:29:23 by jmuni-re          #+#    #+#             */
-/*   Updated: 2022/07/07 17:07:59 by jmuni-re         ###   ########.fr       */
+/*   Updated: 2022/07/12 16:00:08 by jmuni-re         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
-#include <sys/wait.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdio.h>
-#include <errno.h>
+#include "pipex.h"
 
 void	ft_error(void)
 {
@@ -40,8 +35,6 @@ char	**ft_find_line_env(char **env, char **cmd)
 		ft_error();
 	line = &(env[i][5]);
 	path = ft_split(line, ':');
-	if (!path[i])
-		ft_error();
 	return (path);
 }
 
