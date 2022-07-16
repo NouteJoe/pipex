@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmuni-re <jmuni-re@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 16:07:53 by jmuni-re          #+#    #+#             */
-/*   Updated: 2022/07/16 16:51:11 by jmuni-re         ###   ########.fr       */
+/*   Created: 2022/07/16 16:32:19 by jmuni-re          #+#    #+#             */
+/*   Updated: 2022/07/16 16:48:20 by jmuni-re         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "pipex.h"
 
-# include "./libft/libft.h"
-# include <sys/wait.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <stdio.h>
-# include <errno.h>
-
-void	ft_process(int argc, char **argv, char **env, int tmp);
-char	*ft_find_path(char **env, char **cmd);
-char	**ft_find_line_env(char **env, char **cmd);
-void	ft_error(int x);
-void	ft_child(char **env, char *argv, int *fd);
-
-#endif
+void	ft_error(int x)
+{
+	if (x == 0)
+		perror(NULL);
+	if (x == 1)
+		perror("Wrong number of arguments");
+	if (x == 2)
+		perror("Command not found");
+	if (x == 3)
+		perror("Open infile failed ");
+	if (x == 4)
+		perror("Open outfile failed");
+	if (x == 5)
+		perror("Path not found ");
+	if (x == 6)
+		perror("Error with fork ");
+	if (x == 7)
+		perror("Error with excve");
+	exit(1);
+}
